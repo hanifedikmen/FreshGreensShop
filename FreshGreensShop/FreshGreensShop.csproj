@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -88,19 +95,86 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\img\about.jpg" />
+    <Content Include="Assets\img\bg-icon.png" />
+    <Content Include="Assets\img\blog-1.jpg" />
+    <Content Include="Assets\img\blog-2.jpg" />
+    <Content Include="Assets\img\blog-3.jpg" />
+    <Content Include="Assets\img\carousel-1.jpg" />
+    <Content Include="Assets\img\carousel-2.jpg" />
+    <Content Include="Assets\img\icon-1.png" />
+    <Content Include="Assets\img\icon-2.png" />
+    <Content Include="Assets\img\icon-3.png" />
+    <Content Include="Assets\img\product-1.jpg" />
+    <Content Include="Assets\img\product-2.jpg" />
+    <Content Include="Assets\img\product-3.jpg" />
+    <Content Include="Assets\img\product-4.jpg" />
+    <Content Include="Assets\img\product-5.jpg" />
+    <Content Include="Assets\img\product-6.jpg" />
+    <Content Include="Assets\img\product-7.jpg" />
+    <Content Include="Assets\img\product-8.jpg" />
+    <Content Include="Assets\img\testimonial-1.jpg" />
+    <Content Include="Assets\img\testimonial-2.jpg" />
+    <Content Include="Assets\img\testimonial-3.jpg" />
+    <Content Include="Assets\img\testimonial-4.jpg" />
+    <Content Include="Assets\js\main.js" />
+    <Content Include="Assets\lib\animate\animate.css" />
+    <Content Include="Assets\lib\animate\animate.min.css" />
+    <Content Include="Assets\lib\easing\easing.js" />
+    <Content Include="Assets\lib\easing\easing.min.js" />
+    <Content Include="Assets\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Assets\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Assets\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Assets\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Assets\lib\waypoints\waypoints.min.js" />
+    <Content Include="Assets\lib\wow\wow.js" />
+    <Content Include="Assets\lib\wow\wow.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Data\BaseEntity.cs" />
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\FreshGreensContext.cs" />
+    <Compile Include="Data\MeasurementUnit.cs" />
+    <Compile Include="Data\Product.cs" />
+    <Compile Include="Data\ProductImage.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303282048264_initialization.cs" />
+    <Compile Include="Migrations\202303282048264_initialization.designer.cs">
+      <DependentUpon>202303282048264_initialization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Assets\lib\owlcarousel\LICENSE" />
+    <Content Include="Assets\lib\waypoints\links.php" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Shared\_AboutUsBody.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\ProductDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,8 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202303282048264_initialization.resx">
+      <DependentUpon>202303282048264_initialization.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -143,7 +221,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
